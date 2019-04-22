@@ -1,16 +1,28 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BookRazor.Models;
 
 namespace BookRazor.Pages
 {
     public class CreateBookModel : PageModel
     {
-        public void OnGet()
+        public string connectionStr = new AppSettings().connectionStr;
+
+        [BindProperty]
+        public Book book { get; set; }
+
+        public ActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            book.CreateBook(connectionStr, book);
+
+            return RedirectToPage("./Books");
         }
     }
 }

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookRazor.Models
 {
     public class Book
     {
         public int BookId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Isbn { get; set; }
+        [Required]
         public string PublisherName { get; set; }
         public string AuthorName { get; set; }
         public string CategoryName { get; set; }
