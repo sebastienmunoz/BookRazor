@@ -7,6 +7,6 @@ namespace BookRazor
 {
     public class AppSettings
     {
-        public string connectionStr { get; set; } = "Data Source=.;Initial Catalog = First; Integrated Security = True; MultipleActiveResultSets=True";
+        public string connectionStr { get; set; } = @"Data Source=.\SQLEXPRESS;Initial Catalog=BOOK;Integrated Security=SSPI";
     }
 }
